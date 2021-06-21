@@ -1,4 +1,16 @@
+import {useState, useEffect} from 'react'
+
 function CartContainer({cart}){
+    const [time, setTime] = useState(60)
+
+    useEffect(() => {
+       const intervalId = setInterval(()=>{setTime(time => time - 1)}, 1000)
+        return () => {
+            clearInterval(intervalId)
+        }
+    }, [])
+
+    console.log(time)
     function showItems(){
         return cart.map(item => {
             return (
@@ -11,6 +23,7 @@ function CartContainer({cart}){
     }
     return(
         <div id="cart-container">
+            <h1>You have {time} seconds to check out</h1>
             {showItems()}
         </div>
     )

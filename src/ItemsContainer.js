@@ -1,7 +1,7 @@
 import FilterBar from './FilterBar'
 import Item from './Item'
 
-function ItemsContainer({items, addItem, cart}){
+function ItemsContainer({items, addItem, cart, moreItems, fetchMoreItems}){
 
   function isInCart(item){
     return !!cart.find(i => i.id === item.id)
@@ -10,6 +10,7 @@ function ItemsContainer({items, addItem, cart}){
         <div id="ItemsContainer">
           <FilterBar />
           {items.map(item => <Item  key={item.id}  name={item.name} image1={item.image1} image2={item.image2} price={item.price} id={item.id} addItem={addItem} isInCart={isInCart(item)}/>) }
+          {moreItems && <button onClick={fetchMoreItems}>Load More</button> }
         </div>
     )
 }
