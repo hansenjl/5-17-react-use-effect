@@ -3,7 +3,8 @@ function CartContainer({cart}){
         return cart.map(item => {
             return (
                 <div key={item.id}>
-                    {item.name + item.price}
+                    <h2>{item.name}</h2> 
+                    <p>${item.price}</p>
                 </div>
             )
         })

@@ -1,8 +1,8 @@
-function Header(){
+function Header({nextPage, switchView}){
     return(
         <div id="header">
             <h1>Shopping</h1>
-            <p>View Cart</p>
+            <p onClick={switchView}>View {nextPage}</p>
         </div>
     )
 }
