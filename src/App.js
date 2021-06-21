@@ -6,13 +6,13 @@ import CartContainer from './CartContainer'
 import {useState} from 'react'
 
 function App() {
-  const [page, setPage] = useState("Items")
+  const [nextPage, setNextPage] = useState("Cart")
   const [items, setItems] = useState([])
   const [cart, setCart] = useState([])
   return (
     <div className="App">
       <Header />
-      {page === "Items" ? <ItemsContainer items={items}/> : <CartContainer cart={cart}/>}
+      {nextPage === "Cart" ? <ItemsContainer items={items}/> : <CartContainer cart={cart}/>}
     </div>
   );
 }
