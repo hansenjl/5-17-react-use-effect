@@ -1,11 +1,11 @@
 import FilterBar from './FilterBar'
 import Item from './Item'
 
-function ItemsContainer(){
+function ItemsContainer({items}){
     return(
         <div id="ItemsContainer">
           <FilterBar />
-          {this.props.items.map(item => <Item  key={item.id} item={item} />) }
+          {items.map(item => <Item  key={item.id} item={item} />) }
         </div>
     )
 }
