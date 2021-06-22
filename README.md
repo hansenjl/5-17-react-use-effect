@@ -8,3 +8,9 @@
 - Add a pagination feature for items
 
 [Lifecycle Methods Diagram](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
+
+# Part 2 Goals 
+- Describe the difference between a presentational component and a container component
+- Be able to transform a functional component into a class component
+- Understand when and how to utilize useEffect
+- Identify the Lifecycle methods that useEffect "replaces"
