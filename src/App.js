@@ -16,6 +16,10 @@ function App() {
     .then(data => setItems(data))
   }
 
+  function addToItems(item){
+    setItems(items => [...items, item])
+  }
+
   function addItemToCart(id){
     // which item should it add to the cart? 
     console.log(id)
@@ -42,7 +46,8 @@ function App() {
     <div className="App">
       <Header changeView={changeView} whatever={nextPage}/>
       {nextPage === "Cart" ? 
-      <ItemsContainer addToCart={addItemToCart} items={items} cart={cart}/> : <CartContainer cart={cart}/>}
+      <ItemsContainer addToCart={addItemToCart} items={items} cart={cart} addToItems={addToItems}/> : 
+      <CartContainer cart={cart}/>}
     </div>
   );
 }
