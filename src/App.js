@@ -4,9 +4,13 @@ import Header from './Header'
 import ItemsContainer from './ItemsContainer'
 import CartContainer from './CartContainer'
 import {useState, useEffect} from 'react'
+import {
+  Switch,
+  Route
+} from "react-router-dom";
+
 
 function App() {
-  const [nextPage, setNextPage] = useState("Cart")
   const [items, setItems] = useState([])
   const [cart, setCart] = useState([])
 
@@ -28,9 +32,6 @@ function App() {
     setCart((mostUpToDateCart) => [...mostUpToDateCart, item])
   }
 
-  function changeView(){
-    setNextPage((upToDatePage) => upToDatePage === "Cart" ? "Items" : "Cart")
-  }
  
 
   useEffect(() => {
@@ -44,10 +45,22 @@ function App() {
 
   return (
     <div className="App">
-      <Header changeView={changeView} whatever={nextPage}/>
-      {nextPage === "Cart" ? 
-      <ItemsContainer addToCart={addItemToCart} items={items} cart={cart} addToItems={addToItems}/> : 
-      <CartContainer cart={cart}/>}
+      <Header />
+      <Switch>
+        <Route exact path="/cart">
+          <CartContainer cart={cart}/>
+        </Route>
+        <Route exact path="/">
+            <h1>Homepage</h1>
+        </Route>
+        <Route path="/items">
+          <ItemsContainer addToCart={addItemToCart} items={items} cart={cart} addToItems={addToItems}/> 
+        </Route>
+        <Route path="/*">
+          <h1>URL not found</h1>
+        </Route>
+      </Switch>
+      
     </div>
   );
 }

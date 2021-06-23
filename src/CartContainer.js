@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react'
+import {Link} from 'react-router-dom'
 
 function CartContainer({cart}){
     const [timeLeft, setTimeLeft] = useState(60)
@@ -24,7 +25,7 @@ function CartContainer({cart}){
         return cart.map(item => {
             return (
                 <div key={item.id}>
-                    <h3>{item.name}</h3> 
+                    <h3><Link to={`/items/${item.id}`}>{item.name}</Link></h3> 
                     <p>${item.price}</p>
                 </div>
             )
